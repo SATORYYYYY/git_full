@@ -1,8 +1,4 @@
 {% extends 'base.html' %}
-<<<<<<< HEAD
-=======
-
->>>>>>> 3dc41b8156e7404e074383ad3ee1b8df3b6dc39f
 {% block content %}
 <h2>Вход</h2>
 <form method="post">
@@ -11,12 +7,6 @@
     <p><input type="password" name="password" placeholder="Пароль" required></p>
     <button type="submit">Войти</button>
 </form>
-<<<<<<< HEAD
 {% if error %}<p style="color: red;">{{ error }}</p>{% endif %}
-=======
-{% if error %}
-    <p style="color: red;">{{ error }}</p>
-{% endif %}
->>>>>>> 3dc41b8156e7404e074383ad3ee1b8df3b6dc39f
 <p>Зарегай <a class="button" href="{% url 'register' %}">Создай акк</a></p>
 {% endblock %}

@@ -1,16 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<<<<<<< HEAD
 <h2>Оставить отзыв о курсе "{{ zayavka.kurs }}"</h2>
 <form method="post">
     {% csrf_token %}
     <p><textarea name="review" rows="5" placeholder="Ваш отзыв..." required></textarea></p>
-=======
-<h2>Оставить отзыв о курсе "{{ application.course }}"</h2>
-<form method="post">
-    {% csrf_token %}
-    <p><textarea name="review" rows="5" cols="40" placeholder="Ваш отзыв..." required></textarea></p>
->>>>>>> 3dc41b8156e7404e074383ad3ee1b8df3b6dc39f
     <button type="submit">Отправить отзыв</button>
 </form>
 <p><a class="button" href="{% url 'home' %}">Вернуться на главную</a></p>
