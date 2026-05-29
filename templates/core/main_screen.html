@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Добро пожаловать, {{ request.user.username }}!</h1>
+
+<div class="slider">
+    <div class="slides">
+        <img src="{% static 'images/slide1.png' %}" alt="Slide 1" class="active">
+        <img src="{% static 'images/slide2.png' %}" alt="Slide 2">
+        <img src="{% static 'images/slide3.png' %}" alt="Slide 3">
+        <img src="{% static 'images/slide4.png' %}" alt="Slide 4">
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+</div>
+
+<p><a class="button" href="{% url 'create_application' %}">Подать новую заявку</a></p>
+
+<h2>Ваши заявки</h2>
+<table border="1" cellpadding="8" style="border-collapse: collapse;">
+    <tr>
+        <th>Курс</th>
+        <th>Дата начала</th>
+        <th>Способ оплаты</th>
+        <th>Статус</th>
+        <th>Отзыв</th>
+    </tr>
+    {% for app in applications %}
+    <tr>
+        <td>{{ app.course }}</td>
+        <td>{{ app.start_date }}</td>
+        <td>{{ app.get_payment_method_display }}</td>
+        <td>{{ app.get_status_display }}</td>
+        <td>
+            {% if app.status == 'completed' and not app.review %}
+                <a href="{% url 'add_review' app.id %}">Оставить отзыв</a>
+            {% elif app.review %}
+                {{ app.review|truncatechars:30 }}
+            {% else %}
+                —
+            {% endif %}
+        </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">У вас пока нет заявок.</td></tr>
+    {% endfor %}
+</table>
+
+<p><a class="button" href="{% url 'logout' %}">Выйти</a></p>
+
+<script src="{% static 'js/slider.js' %}"></script>
+{% endblock %}

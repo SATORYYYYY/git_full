@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3dc41b8156e7404e074383ad3ee1b8df3b6dc39f
+{% block content %}
+<h2>Регистрация</h2>
+<form method="post">
+    {% csrf_token %}
+    <p><input type="text" name="username" placeholder="Логин" required></p>
+    <p><input type="password" name="password" placeholder="Пароль (минимум 8 символов)" required></p>
+    <p><input type="text" name="full_name" placeholder="ФИО" required></p>
+    <p><input type="text" name="phone" placeholder="Телефон (8(XXX)XXX-XX-XX)" required></p>
+    <p><input type="email" name="email" placeholder="Email" required></p>
+    <button type="submit">Зарегать</button>
+</form>
+<<<<<<< HEAD
+{% if error %}<p style="color: red;">{{ error }}</p>{% endif %}
+<p>Войди в акк <a class="button" href="{% url 'login' %}">Войти</a></p>
+{% endblock %}
+=======
+{% if error %}
+    <p style="color: red;">{{ error }}</p>
+{% endif %}
+<p>Войди в акк <a class="button" href="{% url 'login' %}">Войти</a></p>
+{% endblock %}
+>>>>>>> 3dc41b8156e7404e074383ad3ee1b8df3b6dc39f
