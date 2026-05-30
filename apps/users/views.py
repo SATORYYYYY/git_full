@@ -7,8 +7,8 @@ def register(request):
     if request.method == 'POST':
         username = request.POST.get('username', '').strip()
         password = request.POST.get('password', '')
-        full_name = request.POST.get('full_name', '').strip()
-        phone = request.POST.get('phone', '').strip()
+        fio = request.POST.get('full_name', '').strip()
+        telefon = request.POST.get('phone', '').strip()
         email = request.POST.get('email', '').strip()
 
         if User.objects.filter(username=username).exists():
@@ -19,8 +19,8 @@ def register(request):
         User.objects.create_user(
             username=username,
             password=password,
-            full_name=full_name,
-            phone=phone,
+            fio=fio,
+            telefon=telefon,
             email=email
         )
         return redirect('login')
