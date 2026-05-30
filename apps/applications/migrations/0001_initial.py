@@ -15,7 +15,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-<<<<<<< HEAD
             name='Zayavka',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -32,18 +31,3 @@ class Migration(migrations.Migration):
             },
         ),
     ]
-=======
-            name='Application',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('course', models.CharField(max_length=100)),
-                ('start_date', models.CharField(max_length=10)),
-                ('payment_method', models.CharField(choices=[('cash', 'Наличными'), ('transfer', 'Перевод по номеру телефона')], max_length=20)),
-                ('status', models.CharField(choices=[('new', 'Новая'), ('in_progress', 'Идет обучение'), ('completed', 'Обучение завершено')], default='new', max_length=20)),
-                ('review', models.TextField(blank=True, null=True)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-            ],
-        ),
-    ]
->>>>>>> 3dc41b8156e7404e074383ad3ee1b8df3b6dc39f
